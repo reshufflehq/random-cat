@@ -28,13 +28,13 @@ export default function Admin() {
             // prevent empty string to add in list
             if (!text) return;
     
-            // each todo will have it's own id which will be used to delete this todo in future
+            // each url will have it's own id which will be used to delete this url in the future
             const list = await addNewUrl({
                 id: generateRandomId(),
-                text
+                url: text
             });
             
-                // update app with new todo list
+                // update page with the new url
                 setLinksList(list.reverse());
                 setInputValue("");
             
@@ -85,13 +85,13 @@ const generateRandomId = () => {
 
         <div className="py-2" />
 
-        {linksList.map(({ text, id }) => (
+        {linksList.map(({ url, id }) => (
           <div
             className="d-flex justify-content-between align-items-center py-2"
-            key={text}
+            key={url}
           >
             <div className="flex-grow-1 text-align-left">
-              <span>{text}</span>
+              <span>{url}</span>
             </div>
             <Button
               className="ml-3 my-button"
