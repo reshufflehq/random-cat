@@ -1,0 +1,50 @@
+.trimText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.url-row button {
+  display: none;
+}
+
+.url-row:hover button {
+  display: block;
+}
+
+.url-row {
+  height: 40px;
+  padding-right: 5rem;
+}
+
+.url-add {
+  background-color: rgb(248, 216, 205);
+  color: black;
+  border: none;
+}
+
+.url-add:hover {
+  background-color: rgb(247, 195, 176);
+  color: black;
+  border: none;
+}
+
+.trimText:hover {
+  height: 40px;
+  padding-right: 5rem;
+  background-color: rgb(248, 216, 205);
+}
+
+.link {
+  color: rgb(247, 195, 176);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgb(241, 151, 119);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(247, 181, 144, 0.25);
+  border-color: rgb(248, 216, 205);
+}
