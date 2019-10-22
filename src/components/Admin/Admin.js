@@ -93,16 +93,15 @@ export default function Admin() {
 
       {linksList.map(({ url, id }) => (
         <Row className='ml-0 url-row' key={url} variant='info'>
-          <Col className='pl-0 pr-0 delete'>
-            <Button
-              variant='light'
-              size='sm'
-              onClick={() => handleDeleteList(id)}
-            >
-              X
-            </Button>
-          </Col>
-          <Col className='col-10 trimText'>
+          <Button
+            variant='light'
+            size='sm'
+            className=''
+            onClick={() => handleDeleteList(id)}
+          >
+            X
+          </Button>
+          <Col className='col-10 trimText '>
             <span className=''>{url}</span>
           </Col>
         </Row>
