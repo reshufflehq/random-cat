@@ -29,7 +29,7 @@ export default function Admin() {
 
   const handleAddLink = async () => {
     try {
-      let text = inputValue;
+      const text = inputValue;
 
       // prevent empty string to add in list
       if (!text) return;
