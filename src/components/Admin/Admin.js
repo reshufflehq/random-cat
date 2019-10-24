@@ -23,9 +23,13 @@ export default function Admin() {
     try {
       await fetchFromDb();
     } catch {
-      console.error('An error on fetch');
+      console.error('An error on fetch urls list from db');
     }
   }, []);
+
+  const generateRandomId = () => {
+    return new Date().getTime();
+  };
 
   const handleAddLink = async () => {
     try {
@@ -43,11 +47,9 @@ export default function Admin() {
       // update page with the new url
       setLinksList(list.reverse());
       setInputValue('');
-    } catch (error) {}
-  };
-
-  const generateRandomId = () => {
-    return new Date().getTime();
+    } catch (error) {
+      console.error('Error on adding link to db');
+    }
   };
 
   const handleChange = event => {
