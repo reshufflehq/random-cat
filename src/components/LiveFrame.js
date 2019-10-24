@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { getLinks } from '../../backend/backend';
 
-const generateRandomNumber = list => {
+const generateRandomListItem = list => {
   return Math.floor(Math.random() * list.length);
 };
 
@@ -18,7 +18,7 @@ export default function Admin() {
     async function fetchFromDb() {
       let links = await getLinks();
       setLinksList([...links]);
-      const random = generateRandomNumber(links);
+      const random = generateRandomListItem(links);
       setUrl(links[random].url);
     }
     try {
@@ -30,7 +30,7 @@ export default function Admin() {
 
   const handleClick = event => {
     try {
-      const random = generateRandomNumber(linksList);
+      const random = generateRandomListItem(linksList);
       setUrl(linksList[random].url);
     } catch (error) {
       console.error('error HandleClick');
