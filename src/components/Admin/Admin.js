@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { addNewUrl, deleteLinkById, getLinks } from '../../../backend/backend';
-import './admin.css';
+import './Admin.css';
 
 export default function Admin() {
   const [inputValue, setInputValue] = useState('');
