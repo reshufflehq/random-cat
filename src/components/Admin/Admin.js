@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import PreviewFrame from '../PreviewFrame';
 
 import { addNewUrl, deleteLink, getLinks } from '../../../backend/backend';
 import './Admin.css';
@@ -14,6 +15,7 @@ import './Admin.css';
 export default function Admin() {
   const [inputValue, setInputValue] = useState('');
   const [linksList, setLinksList] = useState([]);
+  const [frameKey, setFrameKey] = useState(1);
 
   useEffect(async () => {
     async function fetchFromDb() {
@@ -39,6 +41,7 @@ export default function Admin() {
       // update page with the new url
       setLinksList(list.reverse());
       setInputValue('');
+      setFrameKey(frameKey + 1);
     } catch (error) {
       console.error('Error on adding link to db');
     }
@@ -65,41 +68,48 @@ export default function Admin() {
         Live
       </Link>
 
-      <h1 className='pt-4 pb-4'>{`Cat's List (${linksList.length})`}</h1>
-      <Row className='mr-0 ml-0 pb-4'>
-        <Col className='pl-0 pr-0'>
-          <Form.Control
-            as='input'
-            type='text'
-            placeholder='Add cats image url'
-            className='input-control'
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={handleChange}
-          />
+      <Row>
+        <Col className='col-md-7 col-sm-10'>
+          <h1 className='pt-4 pb-4'>{`Cat's List (${linksList.length})`}</h1>
+          <Row className='mr-0 ml-0 pb-4'>
+            <Col className='pl-0 pr-0'>
+              <Form.Control
+                as='input'
+                type='text'
+                placeholder='Add cats image url'
+                className='input-control'
+                value={inputValue}
+                onChange={handleChange}
+                onKeyDown={handleChange}
+              />
+            </Col>
+            <Col className='col-1 pl-1 pr-0'>
+              <Button onClick={handleAddLink} className='url-add'>
+                +
+              </Button>
+            </Col>
+          </Row>
+
+          {linksList.map(url => (
+            <Row className='ml-0 url-row' key={url} variant='info'>
+              <Button
+                variant='light'
+                size='sm'
+                className=''
+                onClick={() => handleDeleteList(url)}
+              >
+                X
+              </Button>
+              <Col className='col-10 trim-text '>
+                <span className=''>{url}</span>
+              </Col>
+            </Row>
+          ))}
         </Col>
-        <Col className='col-1 pl-1 pr-0'>
-          <Button onClick={handleAddLink} className='url-add'>
-            +
-          </Button>
+        <Col>
+          <PreviewFrame key={frameKey} />
         </Col>
       </Row>
-
-      {linksList.map(url => (
-        <Row className='ml-0 url-row' key={url} variant='info'>
-          <Button
-            variant='light'
-            size='sm'
-            className=''
-            onClick={() => handleDeleteList(url)}
-          >
-            X
-          </Button>
-          <Col className='col-10 trim-text '>
-            <span className=''>{url}</span>
-          </Col>
-        </Row>
-      ))}
     </Container>
   );
 }
