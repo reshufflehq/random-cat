@@ -14,27 +14,23 @@ export default function Admin() {
   const [linksList, setLinksList] = useState([]);
   const [url, setUrl] = useState('');
 
-  useEffect(() => {
+  useEffect(async () => {
     async function fetchFromDb() {
       const links = await getLinks();
-      setLinksList([...links]);
+      setLinksList(links);
       const random = generateRandomListItem(links);
       setUrl(links[random].url);
     }
     try {
-      fetchFromDb();
+      await fetchFromDb();
     } catch {
       console.error('An error on fetch');
     }
   }, []);
 
   const handleClick = event => {
-    try {
-      const random = generateRandomListItem(linksList);
-      setUrl(linksList[random].url);
-    } catch (error) {
-      console.error('error HandleClick');
-    }
+    const random = generateRandomListItem(linksList);
+    setUrl(linksList[random].url);
   };
 
   return (
