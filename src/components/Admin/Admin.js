@@ -17,7 +17,7 @@ export default function Admin() {
 
   useEffect(() => {
     async function fetchFromDb() {
-      let links = await getLinks();
+      const links = await getLinks();
       setLinksList([...links]);
     }
     try {
