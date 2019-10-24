@@ -52,8 +52,8 @@ export default function Admin() {
     }
   };
 
-  const handleChange = ({ key, target }) => {
-    if (key === 'Enter') {
+  const handleChange = ({ which, target, keyCode }) => {
+    if (which == 13 || keyCode == 13) {
       handleAddLink();
       return;
     }
