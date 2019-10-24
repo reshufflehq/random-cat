@@ -52,12 +52,12 @@ export default function Admin() {
     }
   };
 
-  const handleChange = event => {
-    if (event.key === 'Enter') {
+  const handleChange = ({ key, target }) => {
+    if (key === 'Enter') {
       handleAddLink();
       return;
     }
-    setInputValue(event.target.value);
+    setInputValue(target.value);
   };
   const handleDeleteList = async id => {
     const list = await deleteLinkById(id);
