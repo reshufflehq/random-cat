@@ -1,6 +1,6 @@
 import { update, get } from '@reshuffle/db';
 
-const links = 'links';
+const LINKS = 'links';
 /**
  * Save the new http link given from client-side input
  *
@@ -10,7 +10,7 @@ const links = 'links';
  */
 /* @expose */
 export async function addNewUrl(link = {}) {
-  return update(links, (list = []) => list.concat(link));
+  return update(LINKS, (list = []) => list.concat(link));
 }
 
 /**
@@ -22,7 +22,7 @@ export async function addNewUrl(link = {}) {
  */
 /* @expose */
 export async function deleteLinkById(id) {
-  return update(links, (list = []) => list.filter(link => link.id !== id));
+  return update(LINKS, (list = []) => list.filter(link => link.id !== id));
 }
 
 /**
@@ -32,5 +32,5 @@ export async function deleteLinkById(id) {
  */
 /* @expose */
 export async function getLinks() {
-  return get(links) || [];
+  return get(LINKS) || [];
 }
