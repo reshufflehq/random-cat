@@ -15,13 +15,13 @@ export default function Admin() {
   const [inputValue, setInputValue] = useState('');
   const [linksList, setLinksList] = useState([]);
 
-  useEffect(() => {
+  useEffect(async () => {
     async function fetchFromDb() {
       const links = await getLinks();
       setLinksList([...links]);
     }
     try {
-      fetchFromDb();
+      await fetchFromDb();
     } catch {
       console.error('An error on fetch');
     }
