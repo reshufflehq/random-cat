@@ -1,4 +1,4 @@
-.trimText {
+.trim-text {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -28,7 +28,7 @@
   border: none;
 }
 
-.trimText:hover {
+.trim-text:hover {
   height: 40px;
 }
 

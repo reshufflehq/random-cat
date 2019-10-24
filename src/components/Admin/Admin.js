@@ -103,7 +103,7 @@ export default function Admin() {
           >
             X
           </Button>
-          <Col className='col-10 trimText '>
+          <Col className='col-10 trim-text '>
             <span className=''>{url}</span>
           </Col>
         </Row>
