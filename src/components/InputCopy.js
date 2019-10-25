@@ -10,13 +10,10 @@ import copy from 'clipboard-copy';
 
 export default function InputCopy() {
   const [action, setAction] = useState('COPY');
-  const [show, setShow] = useState(false);
-
   const url = window.location.href + 'live';
 
   const handleCopy = () => {
     copy(url).then(setAction('COPIED'));
-    setShow(true);
   };
 
   return (
@@ -32,8 +29,6 @@ export default function InputCopy() {
           key='bottom'
           placement='bottom'
           trigger='click'
-          onExited={() => setShow(false)}
-          show={show}
           overlay={
             <Tooltip id={`tooltip-bottom`}>Copied to clipboard! </Tooltip>
           }
