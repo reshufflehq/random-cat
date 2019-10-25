@@ -19,7 +19,7 @@ export default function Admin() {
       const links = await getLinks();
       setLinksList(links);
       const random = generateRandomListItem(links);
-      setUrl(links[random].url);
+      setUrl(links[random]);
     }
     try {
       await fetchFromDb();
@@ -30,7 +30,7 @@ export default function Admin() {
 
   const handleClick = event => {
     const random = generateRandomListItem(linksList);
-    setUrl(linksList[random].url);
+    setUrl(linksList[random]);
   };
 
   return (

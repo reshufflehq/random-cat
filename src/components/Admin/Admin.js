@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { addNewUrl, deleteLinkById, getLinks } from '../../../backend/backend';
+import { addNewUrl, deleteLink, getLinks } from '../../../backend/backend';
 import './Admin.css';
 
 export default function Admin() {
@@ -18,7 +18,7 @@ export default function Admin() {
   useEffect(async () => {
     async function fetchFromDb() {
       const links = await getLinks();
-      setLinksList([...links]);
+      setLinksList(links);
     }
     try {
       await fetchFromDb();
@@ -27,10 +27,6 @@ export default function Admin() {
     }
   }, []);
 
-  const generateRandomId = () => {
-    return new Date().getTime();
-  };
-
   const handleAddLink = async () => {
     try {
       const text = inputValue;
@@ -38,11 +34,7 @@ export default function Admin() {
       // prevent empty string to add in list
       if (!text) return;
 
-      // each url will have it's own id which will be used to delete this url in the future
-      const list = await addNewUrl({
-        id: generateRandomId(),
-        url: text,
-      });
+      const list = await addNewUrl(text);
 
       // update page with the new url
       setLinksList(list.reverse());
@@ -53,14 +45,14 @@ export default function Admin() {
   };
 
   const handleChange = ({ which, target, keyCode }) => {
-    if (which == 13 || keyCode == 13) {
+    if (which === 13 || keyCode === 13) {
       handleAddLink();
       return;
     }
     setInputValue(target.value);
   };
-  const handleDeleteList = async id => {
-    const list = await deleteLinkById(id);
+  const handleDeleteList = async url => {
+    const list = await deleteLink(url);
 
     if (list) {
       setLinksList(list.reverse());
@@ -93,13 +85,13 @@ export default function Admin() {
         </Col>
       </Row>
 
-      {linksList.map(({ url, id }) => (
+      {linksList.map(url => (
         <Row className='ml-0 url-row' key={url} variant='info'>
           <Button
             variant='light'
             size='sm'
             className=''
-            onClick={() => handleDeleteList(id)}
+            onClick={() => handleDeleteList(url)}
           >
             X
           </Button>
