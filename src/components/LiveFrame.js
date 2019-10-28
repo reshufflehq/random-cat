@@ -21,11 +21,7 @@ export default function Admin() {
       const random = generateRandomListItem(links);
       setUrl(links[random]);
     }
-    try {
-      fetchFromDb();
-    } catch {
-      console.error('An error on fetch');
-    }
+    fetchFromDb();
   }, []);
 
   const handleClick = event => {

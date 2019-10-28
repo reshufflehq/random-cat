@@ -21,11 +21,7 @@ export default function Admin() {
       const links = await getLinks();
       setLinksList(links);
     }
-    try {
-      fetchFromDb();
-    } catch {
-      console.error('An error on fetch urls list from db');
-    }
+    fetchFromDb();
   }, []);
 
   const handleAddLink = async () => {
