@@ -15,7 +15,6 @@ import './Admin.css';
 export default function Admin() {
   const [inputValue, setInputValue] = useState('');
   const [linksList, setLinksList] = useState([]);
-  const [frameKey, setFrameKey] = useState(1);
 
   useEffect(() => {
     async function fetchFromDb() {
@@ -41,7 +40,6 @@ export default function Admin() {
       // update page with the new url
       setLinksList(list.reverse());
       setInputValue('');
-      setFrameKey(frameKey + 1);
     } catch (error) {
       console.error('Error on adding link to db');
     }
