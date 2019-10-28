@@ -16,7 +16,7 @@ export default function PreviewFrame() {
             width='400px'
             height='500px'
             frameBorder='0'
-            title='my-frame'
+            title='cats'
           />
         </Col>
       </Row>
