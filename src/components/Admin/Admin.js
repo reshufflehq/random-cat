@@ -17,13 +17,13 @@ export default function Admin() {
   const [linksList, setLinksList] = useState([]);
   const [frameKey, setFrameKey] = useState(1);
 
-  useEffect(async () => {
+  useEffect(() => {
     async function fetchFromDb() {
       const links = await getLinks();
       setLinksList(links);
     }
     try {
-      await fetchFromDb();
+      fetchFromDb();
     } catch {
       console.error('An error on fetch urls list from db');
     }
@@ -95,19 +95,18 @@ export default function Admin() {
               <Button
                 variant='light'
                 size='sm'
-                className=''
                 onClick={() => handleDeleteList(url)}
               >
                 X
               </Button>
-              <Col className='col-10 trim-text '>
-                <span className=''>{url}</span>
+              <Col className='col-10 trim-text'>
+                <span>{url}</span>
               </Col>
             </Row>
           ))}
         </Col>
         <Col>
-          <PreviewFrame key={frameKey} />
+          <PreviewFrame />
         </Col>
       </Row>
     </Container>

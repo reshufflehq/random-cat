@@ -12,7 +12,7 @@ export default function PreviewFrame() {
       <Row className='d-flex justify-content-center align-items-center p-1'>
         <Col fluid='true'>
           <iframe
-            src={'/live'}
+            src='/live'
             width='400px'
             height='500px'
             frameBorder='0'

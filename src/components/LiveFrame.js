@@ -14,7 +14,7 @@ export default function Admin() {
   const [linksList, setLinksList] = useState([]);
   const [url, setUrl] = useState('');
 
-  useEffect(async () => {
+  useEffect(() => {
     async function fetchFromDb() {
       const links = await getLinks();
       setLinksList(links);
@@ -22,7 +22,7 @@ export default function Admin() {
       setUrl(links[random]);
     }
     try {
-      await fetchFromDb();
+      fetchFromDb();
     } catch {
       console.error('An error on fetch');
     }
