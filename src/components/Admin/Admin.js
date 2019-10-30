@@ -66,7 +66,7 @@ export default function Admin() {
 
       <Row>
         <Col className='col-md-7 col-sm-10'>
-          <h1 className='pt-4 pb-4'>{`Cat's List (${
+          <h1 className='pt-4 pb-4'>{`Cats List (${
             display === Display.LIST && linksList ? linksList.length : 0
           })`}</h1>
           <Row className='mr-0 ml-0 pb-4'>
