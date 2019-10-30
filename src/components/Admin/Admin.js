@@ -66,13 +66,9 @@ export default function Admin() {
 
       <Row>
         <Col className='col-md-7 col-sm-10'>
-<<<<<<< Updated upstream
           <h1 className='pt-4 pb-4'>{`Cats List (${
             display === Display.LIST && linksList ? linksList.length : 0
           })`}</h1>
-=======
-          <h1 className='pt-4 pb-4'>{`Cat's List (${linksList.length})!`}</h1>
->>>>>>> Stashed changes
           <Row className='mr-0 ml-0 pb-4'>
             <Col className='pl-0 pr-0'>
               <Form.Control
