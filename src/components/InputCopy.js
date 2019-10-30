@@ -2,7 +2,7 @@
 import '@reshuffle/code-transform/macro';
 import React, { useState } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -11,32 +11,34 @@ import copy from 'clipboard-copy';
 export default function InputCopy() {
   const [action, setAction] = useState('COPY');
   const url = window.location.href + 'live';
-
+  const iframe = `<iframe src='${url}' width='400px' height='500px' frameBorder='0' title='cats'/>`;
   const handleCopy = () => {
-    copy(url).then(setAction('COPIED'));
+    copy(iframe).then(setAction('COPIED'));
   };
 
   return (
-    <InputGroup className='mb-3 ml-0 mr-0'>
-      <FormControl
-        readOnly
-        value={url}
-        placeholder={url}
-        aria-label={url}
-        aria-describedby='basic-addon2'
-      />
-      <InputGroup.Append>
-        <OverlayTrigger
-          key='bottom'
-          placement='bottom'
-          trigger='click'
-          overlay={<Tooltip id='tooltip-bottom'>Copied to clipboard! </Tooltip>}
-        >
-          <Button variant='outline-secondary' onClick={handleCopy}>
-            {action}
-          </Button>
-        </OverlayTrigger>
-      </InputGroup.Append>
-    </InputGroup>
+    <>
+      <InputGroup className='mb-3 ml-0 mr-0'>
+        <Form.Control
+          as='textarea'
+          rows='2'
+          readOnly
+          value={iframe}
+          placeholder={iframe}
+          aria-label={iframe}
+          aria-describedby='basic-addon2'
+        />
+      </InputGroup>
+      <OverlayTrigger
+        key='bottom'
+        placement='bottom'
+        trigger='click'
+        overlay={<Tooltip id='tooltip-bottom'>Copied to clipboard! </Tooltip>}
+      >
+        <Button variant='outline-secondary' onClick={handleCopy}>
+          {action}
+        </Button>
+      </OverlayTrigger>
+    </>
   );
 }
