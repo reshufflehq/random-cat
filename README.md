@@ -6,8 +6,8 @@ This is a [Reshuffle](https://reshuffle.com/) template.
 
 Random cat app demonstrates how to create an app that can be embedded in any web app using Reshuffle's platform.
 
-Create your list by adding urls of cats, test your list by pressing the images.
-When your list is ready, copy your link and embed it in any web page as you wish using html iframe.
+Add cat images to your application by entering their urls to the list. The application will load a random cat from the list each time you click the displayed image.
+When your list is ready, copy the iframe below the picture and embed it in any web page as you wish.
 
 ## Screenshots
 
