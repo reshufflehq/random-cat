@@ -18,15 +18,19 @@ export default function Admin() {
     async function fetchFromDb() {
       const links = await getLinks();
       setLinksList(links);
-      const random = generateRandomListItem(links);
-      setUrl(links[random]);
+      if (links && links.length > 0) {
+        const random = generateRandomListItem(links);
+        setUrl(links[random]);
+      }
     }
     fetchFromDb();
   }, []);
 
   const handleClick = event => {
-    const random = generateRandomListItem(linksList);
-    setUrl(linksList[random]);
+    if (linksList && linksList.length > 0) {
+      const random = generateRandomListItem(linksList);
+      setUrl(linksList[random]);
+    }
   };
 
   return (
