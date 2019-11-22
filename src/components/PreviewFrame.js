@@ -8,9 +8,9 @@ import InputCopy from './InputCopy';
 
 export default function PreviewFrame() {
   return (
-    <Container>
+    <>
       <Row className='d-flex justify-content-center align-items-center p-1'>
-        <Col fluid='true'>
+        <div>
           <iframe
             src='/live'
             width='400px'
@@ -18,13 +18,13 @@ export default function PreviewFrame() {
             frameBorder='0'
             title='cats'
           />
-        </Col>
+        </div>
       </Row>
       <Row>
         <Col>
           <InputCopy />
         </Col>
       </Row>
-    </Container>
+    </>
   );
 }
