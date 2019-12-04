@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
 import '@reshuffle/code-transform/macro';
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InputCopy from './InputCopy';
 
 export default function PreviewFrame() {
   return (
-    <Container>
+    <>
       <Row className='d-flex justify-content-center align-items-center p-1'>
-        <Col fluid='true'>
+        <div>
           <iframe
             src='/live'
             width='400px'
@@ -18,13 +17,13 @@ export default function PreviewFrame() {
             frameBorder='0'
             title='cats'
           />
-        </Col>
+        </div>
       </Row>
       <Row>
         <Col>
           <InputCopy />
         </Col>
       </Row>
-    </Container>
+    </>
   );
 }
