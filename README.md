@@ -1,3 +1,5 @@
+# We have terminated the backend for this project.  Old Reshuffle projects can not longer be deployed.
+
 [![CircleCI](https://circleci.com/gh/reshufflehq/random-cat.svg?style=svg)](https://circleci.com/gh/reshufflehq/random-cat)
 
 This is a [Reshuffle](https://reshuffle.com/) template.
